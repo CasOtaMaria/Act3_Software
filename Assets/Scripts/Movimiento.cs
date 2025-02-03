@@ -21,11 +21,11 @@ public class Movimiento : MonoBehaviour
 
     void Update()
     {
-        Vector3 camForwardd = cam.transform.forward;
+        Vector3 camForward = cam.transform.forward;
         Vector3 camRight = cam.transform.right;
-        camForwardd.y = 0;
+        camForward.y = 0;
         camRight.y = 0;
-        camForwardd.Normalize();
+        camForward.Normalize();
         camRight.Normalize();
 
         Vector3 moveDirection = Vector3.zero;
@@ -50,9 +50,6 @@ public class Movimiento : MonoBehaviour
             moveDirection += camRight;
         }
 
-             
-        
-
         void OnCollisionEnter(Collision collision)
         {
             if (collision.gameObject.CompareTag("Ground"))
@@ -60,8 +57,6 @@ public class Movimiento : MonoBehaviour
                 ground = true;
             }
         }
-
-
     }
 }
 
