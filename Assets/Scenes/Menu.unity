@@ -214,7 +214,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 207811836}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 464}
+  m_LocalPosition: {x: 0, y: 0, z: 28}
   m_LocalScale: {x: 11.986648, y: 5.6315, z: 5.6315}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -222,8 +222,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -0.0077858, y: 0.001318}
+  m_SizeDelta: {x: 160.18, y: 191.78}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &207811838
 MonoBehaviour:
@@ -369,8 +369,9 @@ GameObject:
   - component: {fileID: 748779352}
   - component: {fileID: 748779351}
   - component: {fileID: 748779350}
+  - component: {fileID: 748779353}
   m_Layer: 5
-  m_Name: Jugar
+  m_Name: Boton Jugar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -438,7 +439,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 748779351}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 748779348}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &748779351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -477,6 +490,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 748779348}
   m_CullTransparentMesh: 1
+--- !u!114 &748779353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748779348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8176b20b182e654aaa45889a9230d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1200125720
 GameObject:
   m_ObjectHideFlags: 0
@@ -490,7 +515,7 @@ GameObject:
   - component: {fileID: 1200125723}
   - component: {fileID: 1200125722}
   m_Layer: 5
-  m_Name: Salir
+  m_Name: Boton Salir
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -702,7 +727,7 @@ GameObject:
   - component: {fileID: 1641651078}
   - component: {fileID: 1641651077}
   m_Layer: 5
-  m_Name: Opciones
+  m_Name: Boton Opciones
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -857,10 +882,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -877,7 +902,7 @@ Canvas:
   m_GameObject: {fileID: 1762213193}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
