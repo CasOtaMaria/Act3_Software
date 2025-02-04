@@ -4,60 +4,81 @@ using UnityEngine;
 
 public class Movimiento : MonoBehaviour
 {
-
-   
-    public float velocidad;
-    public float rotation;
-    public Camera cam;
-    public Rigidbody cuerpo;
-    public float jump;
-
-    bool ground;
-
-    private void Start()
+    public float velocidad = 5.0f;
+    public float salto = 5f;
+    public float horizontalInput;
+    public float forwardInput;
+    private Rigidbody jugadorRB;
+    void Start()
     {
-        cuerpo = GetComponent<Rigidbody>();
+        jugadorRB = GetComponent<Rigidbody>();
     }
-
     void Update()
     {
-        Vector3 camForward = cam.transform.forward;
-        Vector3 camRight = cam.transform.right;
-        camForward.y = 0;
-        camRight.y = 0;
-        camForward.Normalize();
-        camRight.Normalize();
+        horizontalInput = Input.GetAxis("Horizontal");
+        forwardInput = Input.GetAxis("Vertical");
 
-        Vector3 moveDirection = Vector3.zero;
-
-      
-
-        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
+        transform.Translate(Vector3.forward * Time.deltaTime * velocidad * forwardInput);
+        transform.Translate(Vector3.right * Time.deltaTime * velocidad * horizontalInput);
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            transform.position += transform.forward * velocidad * Time.deltaTime;
-        }
-        if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
-        {
-            transform.position -= transform.forward * velocidad * Time.deltaTime;
-        }
-      
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
-        {
-            moveDirection -= camRight;
-        }
-        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
-        {
-            moveDirection += camRight;
-        }
-
-        void OnCollisionEnter(Collision collision)
-        {
-            if (collision.gameObject.CompareTag("Ground"))
-            {
-                ground = true;
-            }
+            jugadorRB.AddForce(Vector3.up * salto, ForceMode.Impulse);
         }
     }
+
+    /*
+     public float velocidad;
+     public float rotation;
+     public Camera cam;
+     public Rigidbody cuerpo;
+     public float jump;
+
+     bool ground;
+
+     private void Start()
+     {
+         cuerpo = GetComponent<Rigidbody>();
+     }
+
+     void Update()
+     {
+         Vector3 camForward = cam.transform.forward;
+         Vector3 camRight = cam.transform.right;
+         camForward.y = 0;
+         camRight.y = 0;
+         camForward.Normalize();
+         camRight.Normalize();
+
+         Vector3 moveDirection = Vector3.zero;
+
+
+
+         if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
+         {
+             transform.position += transform.forward * velocidad * Time.deltaTime;
+         }
+         if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
+         {
+             transform.position -= transform.forward * velocidad * Time.deltaTime;
+         }
+
+         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+         {
+             moveDirection -= camRight;
+         }
+         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+         {
+             moveDirection += camRight;
+         }
+
+         void OnCollisionEnter(Collision collision)
+         {
+             if (collision.gameObject.CompareTag("Ground"))
+             {
+                 ground = true;
+             }
+         }
+     }*/
 }
 
 
